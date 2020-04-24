@@ -1,0 +1,5 @@
+---
+- name: install rally
+  hosts: all
+  roles:
+          - andrewrothstein.openjdk
