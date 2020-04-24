@@ -1,5 +1,30 @@
 ---
-- name: install rally
+- name: Install EsRally
   hosts: all
-  roles:
-          - andrewrothstein.openjdk
+  become: True
+  vars:
+          java_home: '/usr/lib/jvm/default-java'
+  tasks:
+
+        - name: install default-java
+          package:
+                  name: 'default-jdk'
+                  state: latest
+          
+        - name: set JAVA_HOME
+          lineinfile:
+                  path: ~/.bashrc
+                  line: 'export JAVA_HOME={{ java_home }}'
+                  state: present
+
+        - name: install python3
+          package:
+                  name: python3-pip
+                  state: present
+                  
+        - name: install esrally package
+          pip:
+                  name: esrally
+                  executable: pip3
+                  state: latest
+...
