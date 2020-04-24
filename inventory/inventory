@@ -1,1 +1,1 @@
-rally ansible_host=192.168.1.34 ansible_user=user ansible_ssh_pass=vm
+esrally ansible_host= ansible_user= ansible_ssh_pass=
